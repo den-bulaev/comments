@@ -1,0 +1,2 @@
+(this.webpackJsonpcomments=this.webpackJsonpcomments||[]).push([[0],{11:function(t,n,e){"use strict";e.r(n);var c=e(0),r=e.n(c),s=e(3),o=e.n(s),i=(e(8),e(9),e(1));var a=function(){return Object(i.jsx)("button",{type:"button",className:"button is-primary is-large",children:"primary"})};o.a.render(Object(i.jsx)(r.a.StrictMode,{children:Object(i.jsx)(a,{})}),document.getElementById("root"))},8:function(t,n,e){},9:function(t,n,e){}},[[11,1,2]]]);
+//# sourceMappingURL=main.449c6699.chunk.js.map
