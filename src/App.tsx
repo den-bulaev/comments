@@ -1,9 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { ReactElement } from 'react';
 
-import { Form } from './components/Form/Form';
-import { Comments } from './components/Comments/Comments';
-import { Navbar } from './components/Navbar/Navbar';
+import Form from './components/Form/Form';
+import Comments from './components/Comments/Comments';
+import Navbar from './components/Navbar/Navbar';
 
 import './App.scss';
 

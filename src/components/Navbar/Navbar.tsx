@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 
 import './Navbar.scss';
 
-export const Navbar = (): ReactElement => (
+const Navbar = (): ReactElement => (
   <nav
     className="pagination Navbar"
     role="navigation"
@@ -60,3 +60,5 @@ export const Navbar = (): ReactElement => (
     </ul>
   </nav>
 );
+
+export default React.memo(Navbar);

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import './Comments.scss';
 
-export const Comments = (): ReactElement => (
+const Comments = (): ReactElement => (
   <ul className="Comments">
     <li className="box Comments__item">
       <p className="block">
@@ -135,3 +135,5 @@ export const Comments = (): ReactElement => (
     </li>
   </ul>
 );
+
+export default React.memo(Comments);
