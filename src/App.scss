@@ -1,0 +1,47 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content 1fr;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 !important;
+    padding: 20px;
+    width: 100%;
+    height: min-content;
+    border: 1px solid #45D1B2;
+    border-radius: 20px;
+  }
+
+  &__show-more-button {
+    margin-top: 30px;
+  }
+}
+
+.Form {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+
+  &--button {
+    width: min-content !important;
+  }
+}
+
+.Navbar {
+  padding-top: 50px;
+}
