@@ -31,7 +31,7 @@ function App(): ReactElement {
 
           <button
             type="button"
-            className="button is-primary is-outlined App__show-more-button"
+            className="button is-primary App__show-more-button"
           >
             Show more
           </button>

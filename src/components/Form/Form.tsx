@@ -63,7 +63,7 @@ const Form = (): ReactElement => {
 
       <button
         type="submit"
-        className="button is-outlined is-primary Form--button"
+        className="button is-primary Form--button"
       >
         Add
       </button>
