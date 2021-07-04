@@ -10,19 +10,27 @@ import { getComments } from './api/comments';
 
 import './App.scss';
 
+const step = 3; // commets to display
+
 function App(): ReactElement {
   const [comments, setComments] = useState([]);
   const [isCommentAdded, setCommentAdded] = useState(false);
-  const [visibleCommentsAmount, setVisibleCommentsAmount] = useState(3);
+  const [visibleCommentsAmount, setVisibleCommentsAmount] = useState(step);
 
   useEffect(() => {
     getComments(30)
       .then((response) => setComments(response));
   }, [isCommentAdded, visibleCommentsAmount]);
 
-  const handleClick = () => {
+  const handleClickMore = () => {
     if (comments.length > visibleCommentsAmount) {
-      setVisibleCommentsAmount(visibleCommentsAmount + 3);
+      setVisibleCommentsAmount(visibleCommentsAmount + step);
+    }
+  };
+
+  const handleClickLess = () => {
+    if (visibleCommentsAmount > 0) {
+      setVisibleCommentsAmount(visibleCommentsAmount - step);
     }
   };
 
@@ -55,10 +63,18 @@ function App(): ReactElement {
 
               <button
                 type="button"
-                className="button is-primary App__show-more-button"
-                onClick={handleClick}
+                className="button is-primary App__comments-show-button"
+                onClick={handleClickMore}
               >
                 Show more
+              </button>
+
+              <button
+                type="button"
+                className="button is-primary App__comments-show-button"
+                onClick={handleClickLess}
+              >
+                Show less
               </button>
 
               <Navbar />
