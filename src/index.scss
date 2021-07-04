@@ -1,8 +1,13 @@
 body {
   margin: 0;
-  font-family: Roboto, sans-serif !important;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
 }
 
 .is-current {
   background-color: #45D1B2 !important; //bulma style
+}
+
+.button {
+  font-weight: 400 !important; //bulma style
 }
