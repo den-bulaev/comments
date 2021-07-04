@@ -1,10 +1,16 @@
-import { Options, Response } from '../types';
-
 const BASE_URL = 'https://jordan.ashton.fashion/api/';
+
+type Options = {
+  method: string,
+  body?: string,
+  headers?: {
+    'Content-type': string,
+  }
+}
 
 export const request = (
   endpoint: string, options: Options,
-): Promise<Array<Response>> => {
+): Promise<any> => {
   const url = BASE_URL + endpoint;
 
   return fetch(url, options)
@@ -20,7 +26,7 @@ export const request = (
 
 export const add = (
   endpoint: string, name: string, text: string,
-): Promise<Array<Response>> => {
+): Promise<any> => {
   const options = {
     method: 'POST',
     body: JSON.stringify({
