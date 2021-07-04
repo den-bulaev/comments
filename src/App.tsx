@@ -1,4 +1,6 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, {
+  ReactElement, useEffect, useState,
+} from 'react';
 
 import Form from './components/Form/Form';
 import Comments from './components/Comments/Comments';
@@ -11,11 +13,18 @@ import './App.scss';
 function App(): ReactElement {
   const [comments, setComments] = useState([]);
   const [isCommentAdded, setCommentAdded] = useState(false);
+  const [visibleCommentsAmount, setVisibleCommentsAmount] = useState(3);
 
   useEffect(() => {
     getComments(30)
       .then((response) => setComments(response));
-  }, [isCommentAdded]);
+  }, [isCommentAdded, visibleCommentsAmount]);
+
+  const handleClick = () => {
+    if (comments.length > visibleCommentsAmount) {
+      setVisibleCommentsAmount(visibleCommentsAmount + 3);
+    }
+  };
 
   return (
     <main className="App">
@@ -42,11 +51,12 @@ function App(): ReactElement {
                 Comments
               </h2>
 
-              <Comments comments={comments} />
+              <Comments comments={comments.slice(0, visibleCommentsAmount)} />
 
               <button
                 type="button"
                 className="button is-primary App__show-more-button"
+                onClick={handleClick}
               >
                 Show more
               </button>
