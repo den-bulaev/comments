@@ -61,21 +61,25 @@ function App(): ReactElement {
 
               <Comments comments={comments.slice(0, visibleCommentsAmount)} />
 
-              <button
-                type="button"
-                className="button is-primary App__comments-show-button"
-                onClick={handleClickMore}
-              >
-                Show more
-              </button>
+              {visibleCommentsAmount < comments.length && (
+                <button
+                  type="button"
+                  className="button is-primary App__comments-show-button"
+                  onClick={handleClickMore}
+                >
+                  Show more
+                </button>
+              )}
 
-              <button
-                type="button"
-                className="button is-primary App__comments-show-button"
-                onClick={handleClickLess}
-              >
-                Show less
-              </button>
+              {visibleCommentsAmount > 0 && (
+                <button
+                  type="button"
+                  className="button is-primary App__comments-show-button"
+                  onClick={handleClickLess}
+                >
+                  Show less
+                </button>
+              )}
 
               <Navbar />
             </>
