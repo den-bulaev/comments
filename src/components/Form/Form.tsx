@@ -1,10 +1,15 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, FC, useState } from 'react';
 
 import { addComment } from '../../api/comments';
 
 import './Form.scss';
 
-const Form = (): ReactElement => {
+type Props = {
+  isCommentAdded: boolean,
+  setCommentAdded: (x: boolean) => void,
+};
+
+const Form: FC<Props> = ({ isCommentAdded, setCommentAdded }): ReactElement => {
   const [username, setUserName] = useState('');
   const [commentText, setCommentText] = useState('');
 
@@ -20,9 +25,11 @@ const Form = (): ReactElement => {
     setCommentText(fieldValue);
   };
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addComment(30, username, commentText);
+    await addComment(30, username, commentText);
+
+    setCommentAdded(!isCommentAdded);
 
     setUserName('');
     setCommentText('');

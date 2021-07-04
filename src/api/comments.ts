@@ -5,5 +5,5 @@ export const addComment = (
 ): Promise<any> => add(`goods/${productId}/comments`, name, text);
 
 export const getComments = (productId: number): Promise<any> => (
-  download(`goods/${productId}/comments`)
+  download(`goods/${productId}/comments?page=12`)
 );

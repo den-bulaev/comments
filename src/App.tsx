@@ -10,11 +10,12 @@ import './App.scss';
 
 function App(): ReactElement {
   const [comments, setComments] = useState([]);
+  const [isCommentAdded, setCommentAdded] = useState(false);
 
   useEffect(() => {
     getComments(30)
       .then((response) => setComments(response));
-  }, []);
+  }, [isCommentAdded]);
 
   return (
     <main className="App">
@@ -28,7 +29,10 @@ function App(): ReactElement {
             Add new comment
           </h2>
 
-          <Form />
+          <Form
+            isCommentAdded={isCommentAdded}
+            setCommentAdded={setCommentAdded}
+          />
         </div>
 
         <div className="App__block">
