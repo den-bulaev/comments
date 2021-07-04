@@ -21,20 +21,8 @@ const Form = (): ReactElement => {
   };
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    const options = {
-      method: 'POST',
-      body: JSON.stringify({
-        name: username,
-        text: commentText,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    };
-
     e.preventDefault();
-
-    addComment(30, options);
+    addComment(30, username, commentText);
 
     setUserName('');
     setCommentText('');

@@ -1,7 +1,7 @@
 export type Options = {
   method: string,
-  body: string,
-  headers: {
+  body?: string,
+  headers?: {
     'Content-type': string,
   }
 }

@@ -19,7 +19,18 @@ export const request = (
 };
 
 export const add = (
-  endpoint: string, options: Options,
-): Promise<Array<Response>> => (
-  request(endpoint, options)
-);
+  endpoint: string, name: string, text: string,
+): Promise<Array<Response>> => {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      text,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  };
+
+  return request(endpoint, options);
+};

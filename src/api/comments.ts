@@ -1,8 +1,6 @@
-import { request } from './requests';
-import { Options } from '../types';
+import { add } from './requests';
+import { Response } from '../types';
 
 export const addComment = (
-  productId: number, options: Options,
-): void => {
-  request(`goods/${productId}/comments`, options);
-};
+  productId: number, name: string, text: string,
+): Promise<Array<Response>> => add(`goods/${productId}/comments`, name, text);
