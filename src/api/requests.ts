@@ -21,7 +21,7 @@ export const request = (
 
       return response.json();
     })
-    .then((result) => result.data);
+    .then((result) => result);
 };
 
 export const add = (

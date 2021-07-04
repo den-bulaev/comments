@@ -1,64 +1,98 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { ReactElement } from 'react';
+import React, { ReactElement, FC } from 'react';
 
 import './Navbar.scss';
 
-const Navbar = (): ReactElement => (
-  <nav
-    className="pagination Navbar"
-    role="navigation"
-    aria-label="pagination"
-  >
-    <a
-      className="pagination-previous"
+type Props = {
+  currentPage: number,
+  pagesAmount: number,
+  setCurrentPage: (x: number) => void,
+}
+
+const Navbar: FC<Props> = (
+  { pagesAmount, setCurrentPage, currentPage },
+): ReactElement => {
+  const handleClickNext = () => {
+    if (currentPage < pagesAmount) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handleClickPrevious = () => {
+    if (currentPage >= 2) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleClickFirst = () => {
+    setCurrentPage(1);
+  };
+
+  const handleClickLast = () => {
+    setCurrentPage(pagesAmount);
+  };
+
+  return (
+    <nav
+      className="pagination Navbar"
+      role="navigation"
+      aria-label="pagination"
     >
-      Previous
-    </a>
+      <button
+        type="button"
+        className="pagination-previous button"
+        onClick={handleClickPrevious}
+      >
+        Previous
+      </button>
 
-    <a
-      className="pagination-next"
-    >
-      Next page
-    </a>
+      <button
+        type="button"
+        className="pagination-next button"
+        onClick={handleClickNext}
+      >
+        Next page
+      </button>
 
-    <ul className="pagination-list">
-      <li>
-        <a
-          className="pagination-link"
-          aria-label="Goto page 1"
-        >
-          1
-        </a>
-      </li>
+      <ul className="pagination-list">
+        <li>
+          <button
+            type="button"
+            className="pagination-link button"
+            onClick={handleClickFirst}
+          >
+            1
+          </button>
+        </li>
 
-      <li>
-        <span className="pagination-ellipsis">&hellip;</span>
-      </li>
+        <li>
+          <span className="pagination-ellipsis">&hellip;</span>
+        </li>
 
-      <li>
-        <a
-          className="pagination-link is-current"
-          aria-label="Page 46"
-          aria-current="page"
-        >
-          46
-        </a>
-      </li>
+        <li>
+          <button
+            type="button"
+            className="pagination-link is-current button"
+          >
+            {currentPage}
+          </button>
+        </li>
 
-      <li>
-        <span className="pagination-ellipsis">&hellip;</span>
-      </li>
+        <li>
+          <span className="pagination-ellipsis">&hellip;</span>
+        </li>
 
-      <li>
-        <a
-          className="pagination-link"
-          aria-label="Goto page 86"
-        >
-          86
-        </a>
-      </li>
-    </ul>
-  </nav>
-);
+        <li>
+          <button
+            type="button"
+            className="pagination-link button"
+            onClick={handleClickLast}
+          >
+            {pagesAmount}
+          </button>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
 export default React.memo(Navbar);

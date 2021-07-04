@@ -10,17 +10,22 @@ import { getComments } from './api/comments';
 
 import './App.scss';
 
-const step = 3; // commets to display
+const step = 3; // comments to display
 
 function App(): ReactElement {
   const [comments, setComments] = useState([]);
   const [isCommentAdded, setCommentAdded] = useState(false);
   const [visibleCommentsAmount, setVisibleCommentsAmount] = useState(step);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pagesAmount, setPagesAmount] = useState(0);
 
   useEffect(() => {
-    getComments(30)
-      .then((response) => setComments(response));
-  }, [isCommentAdded, visibleCommentsAmount]);
+    getComments(30, currentPage)
+      .then((response) => {
+        setComments(response.data);
+        setPagesAmount(response.last_page);
+      });
+  }, [isCommentAdded, visibleCommentsAmount, currentPage]);
 
   const handleClickMore = () => {
     if (comments.length > visibleCommentsAmount) {
@@ -81,7 +86,11 @@ function App(): ReactElement {
                 </button>
               )}
 
-              <Navbar />
+              <Navbar
+                pagesAmount={pagesAmount}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
             </>
           )}
         </div>
