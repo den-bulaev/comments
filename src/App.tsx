@@ -1,12 +1,21 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 import Form from './components/Form/Form';
 import Comments from './components/Comments/Comments';
 import Navbar from './components/Navbar/Navbar';
 
+import { getComments } from './api/comments';
+
 import './App.scss';
 
 function App(): ReactElement {
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    getComments(30)
+      .then((response) => setComments(response));
+  }, []);
+
   return (
     <main className="App">
       <h1 className="title is-1 has-text-primary">

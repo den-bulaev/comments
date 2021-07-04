@@ -34,3 +34,11 @@ export const add = (
 
   return request(endpoint, options);
 };
+
+export const download = (
+  endpoint: string,
+): Promise<any> => {
+  const method = { method: 'GET' };
+
+  return request(endpoint, method);
+};
