@@ -32,20 +32,24 @@ function App(): ReactElement {
         </div>
 
         <div className="App__block">
-          <h2 className="subtitle is-2 has-text-primary">
-            Comments
-          </h2>
+          {comments.length > 0 && (
+            <>
+              <h2 className="subtitle is-2 has-text-primary">
+                Comments
+              </h2>
 
-          <Comments />
+              <Comments comments={comments} />
 
-          <button
-            type="button"
-            className="button is-primary App__show-more-button"
-          >
-            Show more
-          </button>
+              <button
+                type="button"
+                className="button is-primary App__show-more-button"
+              >
+                Show more
+              </button>
 
-          <Navbar />
+              <Navbar />
+            </>
+          )}
         </div>
       </section>
     </main>

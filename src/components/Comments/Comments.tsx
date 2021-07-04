@@ -1,138 +1,37 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, FC } from 'react';
 
 import './Comments.scss';
 
-const Comments = (): ReactElement => (
+type TComment = {
+  id: number,
+  name: string,
+  text: string,
+  visible: number,
+  'product_id': number,
+  'created_at': string,
+  'updated_at': string,
+}
+
+type Props = {
+  comments: Array<TComment>,
+}
+
+const Comments: FC<Props> = ({ comments }): ReactElement => (
   <ul className="Comments">
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
+    {comments.map(({ id, name, text }) => (
+      <li key={id} className="box Comments__item">
+        <p className="block">
+          <strong className="has-text-primary">Name: </strong>
+          <span>{name}</span>
+        </p>
 
-      <strong className="has-text-primary">Text:</strong>
+        <strong className="has-text-primary">Text:</strong>
 
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
-
-    <li className="box Comments__item">
-      <p className="block">
-        <strong className="has-text-primary">Name: </strong>
-        <span>Bodya</span>
-      </p>
-
-      <strong className="has-text-primary">Text:</strong>
-
-      <p className="block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      </p>
-    </li>
+        <p className="block">
+          {text}
+        </p>
+      </li>
+    ))}
   </ul>
 );
 
