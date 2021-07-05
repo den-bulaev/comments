@@ -1,4 +1,4 @@
-import React, { ReactElement, FC } from 'react';
+import React, { FC } from 'react';
 
 import './Navbar.scss';
 
@@ -10,7 +10,7 @@ type Props = {
 
 const Navbar: FC<Props> = (
   { pagesAmount, setCurrentPage, currentPage },
-): ReactElement => {
+) => {
   const handleClickNext = () => {
     if (currentPage < pagesAmount) {
       setCurrentPage(currentPage + 1);

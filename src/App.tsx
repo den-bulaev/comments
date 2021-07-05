@@ -1,5 +1,5 @@
 import React, {
-  ReactElement, useEffect, useState,
+  FC, useEffect, useState,
 } from 'react';
 
 import Form from './components/Form/Form';
@@ -12,7 +12,7 @@ import './App.scss';
 
 const step = 3; // comments to display
 
-function App(): ReactElement {
+const App: FC = () => {
   const [comments, setComments] = useState([]);
   const [isCommentAdded, setCommentAdded] = useState(false);
   const [visibleCommentsAmount, setVisibleCommentsAmount] = useState(step);
@@ -97,6 +97,6 @@ function App(): ReactElement {
       </section>
     </main>
   );
-}
+};
 
 export default App;

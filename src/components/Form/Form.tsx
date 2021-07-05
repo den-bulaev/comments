@@ -1,4 +1,4 @@
-import React, { ReactElement, FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { addComment } from '../../api/comments';
 
@@ -9,7 +9,7 @@ type Props = {
   setCommentAdded: (x: boolean) => void,
 };
 
-const Form: FC<Props> = ({ isCommentAdded, setCommentAdded }): ReactElement => {
+const Form: FC<Props> = ({ isCommentAdded, setCommentAdded }) => {
   const [username, setUserName] = useState('');
   const [commentText, setCommentText] = useState('');
 

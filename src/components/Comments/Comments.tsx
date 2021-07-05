@@ -16,7 +16,7 @@ type Props = {
   comments: Array<TComment>,
 }
 
-const Comments: FC<Props> = ({ comments }): ReactElement => (
+const Comments: FC<Props> = ({ comments }) => (
   <ul className="Comments">
     {comments.map(({ id, name, text }) => (
       <li key={id} className="box Comments__item">
