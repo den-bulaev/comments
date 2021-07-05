@@ -1,4 +1,4 @@
-import React, { ReactElement, FC } from 'react';
+import React, { FC } from 'react';
 
 import './Comments.scss';
 
