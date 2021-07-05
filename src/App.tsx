@@ -29,13 +29,13 @@ const App: FC = () => {
 
   const handleClickMore = () => {
     if (comments.length > visibleCommentsAmount) {
-      setVisibleCommentsAmount(visibleCommentsAmount + step);
+      setVisibleCommentsAmount((prev) => prev + step);
     }
   };
 
   const handleClickLess = () => {
     if (visibleCommentsAmount > 0) {
-      setVisibleCommentsAmount(visibleCommentsAmount - step);
+      setVisibleCommentsAmount((prev) => prev - step);
     }
   };
 
@@ -52,7 +52,6 @@ const App: FC = () => {
           </h2>
 
           <Form
-            isCommentAdded={isCommentAdded}
             setCommentAdded={setCommentAdded}
           />
         </div>

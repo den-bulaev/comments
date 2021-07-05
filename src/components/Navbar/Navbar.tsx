@@ -5,7 +5,7 @@ import './Navbar.scss';
 type Props = {
   currentPage: number,
   pagesAmount: number,
-  setCurrentPage: (x: number) => void,
+  setCurrentPage: (x: ((y: number) => number) | number) => void,
 }
 
 const Navbar: FC<Props> = (
@@ -13,13 +13,13 @@ const Navbar: FC<Props> = (
 ) => {
   const handleClickNext = () => {
     if (currentPage < pagesAmount) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage((prev) => prev + 1);
     }
   };
 
   const handleClickPrevious = () => {
     if (currentPage >= 2) {
-      setCurrentPage(currentPage - 1);
+      setCurrentPage((prev) => prev - 1);
     }
   };
 

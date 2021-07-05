@@ -5,11 +5,10 @@ import { addComment } from '../../api/comments';
 import './Form.scss';
 
 type Props = {
-  isCommentAdded: boolean,
-  setCommentAdded: (x: boolean) => void,
+  setCommentAdded: (x: (y: boolean) => boolean) => void,
 };
 
-const Form: FC<Props> = ({ isCommentAdded, setCommentAdded }) => {
+const Form: FC<Props> = ({ setCommentAdded }) => {
   const [username, setUserName] = useState('');
   const [commentText, setCommentText] = useState('');
 
@@ -29,7 +28,7 @@ const Form: FC<Props> = ({ isCommentAdded, setCommentAdded }) => {
     e.preventDefault();
     await addComment(30, username, commentText);
 
-    setCommentAdded(!isCommentAdded);
+    setCommentAdded((prev) => !prev);
 
     setUserName('');
     setCommentText('');
