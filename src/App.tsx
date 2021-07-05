@@ -42,7 +42,7 @@ const App: FC = () => {
   return (
     <main className="App">
       <h1 className="title is-1 has-text-primary">
-        Simple app
+        Comments app
       </h1>
 
       <section className="section App__container">
